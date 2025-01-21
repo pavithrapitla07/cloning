@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AP RTC Bus Pass Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 30px;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 32px;
+            color: #fff;
+            padding: 15px 20px;
+            background: linear-gradient(90deg, #003366, #007bff);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+        form {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 700px;
+            margin: auto;
+        }
+
+        fieldset {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        legend {
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="email"],
+        input[type="number"],
+        select,
+        input[type="file"] {
+            width: 95%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Andhra RTC Bus Pass Application</h2>
+    
+
+    <form action="confirmation.html" method="get" enctype="multipart/form-data">
+
+        <!-- Applicant Details -->
+        <fieldset>
+            <legend>Applicant Details</legend>
+            Name: <input type="text" name="name" maxlength="20">
+            Date of Birth: <input type="date" name="dob">
+            Age As on:
+            <input type="number" name="age_years" placeholder="Years">
+            <input type="number" name="age_months" placeholder="Months">
+            <input type="number" name="age_days" placeholder="Days">
+            WhatsApp No: <input type="text" name="whatsapp">
+            Photo: <input type="file" name="photo">
+            Father's / Guardian's Name: <input type="text" name="father_name">
+            Gender:
+            <input type="radio" name="gender" value="Female"> Female
+            <input type="radio" name="gender" value="Male"> Male<br>
+            Aadhaar No: <input type="text" name="aadhaar">
+            E-mail ID: <input type="email" name="email">
+        </fieldset>
+
+        <!-- Residential Address Details -->
+        <fieldset>
+            <legend>Residential Address Details</legend>
+            Address: <input type="text" name="address" maxlength="20">
+            District:
+            <select name="district" required>
+                <option value="">-- Select District --</option>
+                <option value="Guntur">Guntur</option>
+                <option value="Krishna">Krishna</option>
+                <option value="Nellore">Nellore</option>
+                <option value="Visakhapatnam">Visakhapatnam</option>
+            </select>
+            Mandal:
+            <select name="mandal" required>
+                <option value="">-- Select Mandal --</option>
+                <option value="Tenali">Tenali</option>
+                <option value="Vijayawada">Vijayawada</option>
+                <option value="Kavali">Kavali</option>
+                <option value="Bheemili">Bheemili</option>
+            </select>
+            Village:
+            <select name="village" required>
+                <option value="">-- Select Village --</option>
+                <option value="Kollipara">Kollipara</option>
+                <option value="Patamata">Patamata</option>
+                <option value="Alluru">Alluru</option>
+                <option value="Thagarapuvalasa">Thagarapuvalasa</option>
+            </select>
+            Pincode: <input type="text" name="pincode">
+        </fieldset>
+
+        <!-- Pass Type Details -->
+        <fieldset>
+            <legend>Pass Type Details</legend>
+            City:
+            <select name="city" required>
+                <option value="">-- Select City --</option>
+                <option value="Vijayawada">Vijayawada</option>
+                <option value="Guntur">Guntur</option>
+                <option value="Nellore">Nellore</option>
+                <option value="Visakhapatnam">Visakhapatnam</option>
+            </select>
+            Pass Type:
+            <select name="pass_type" required>
+                <option value="">-- Select Pass Type --</option>
+                <option value="Student">Student</option>
+                <option value="General">General</option>
+                <option value="Senior Citizen">Senior Citizen</option>
+                <option value="Monthly">Monthly</option>
+            </select>
+        </fieldset>
+
+        <!-- Document Upload -->
+        <fieldset>
+            <legend>Upload Supporting Documents</legend>
+            Upload PDF/DOC files:
+            <input type="file" name="documents[]" accept=".pdf,.doc,.docx" multiple>
+        </fieldset>
+
+        <!-- Mode of Payment & Pass Collection -->
+        <fieldset>
+            <legend>Mode of Payment & Pass Collection</legend>
+            Mode of Payment:
+            <select name="payment_mode" required>
+                <option value="">-- Select Payment Mode --</option>
+                <option>Online</option>
+                <option>Cash</option>
+                <option>UPI</option>
+                <option>Debit/Credit Card</option>
+            </select>
+            Pass Collection:
+            <select name="collection_mode" required>
+                <option value="">-- Select Collection Method --</option>
+                <option>Counter</option>
+                <option>Home Delivery</option>
+                <option>Digital Pass (App)</option>
+            </select>
+        </fieldset>
+
+        <!-- Confirmation -->
+        <fieldset>
+            <legend>Confirm Pass Details</legend>
+            <label>
+                <input type="checkbox" name="confirmation" required>
+                I confirm that the above information is true and I accept the terms of the bus pass application.
+            </label>
+        </fieldset>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
